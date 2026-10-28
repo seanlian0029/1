@@ -1,18 +1,30 @@
-ATTENDANCE SYSTEM — FULL TEST BUILD
+ATTENDANCE SYSTEM — REFINED EDITION (STAFF REVIEW BUILD)
+====================================================
+This version retains your original charcoal Bootstrap navigation and school logo,
+refines colors, adds navigation dropdowns, and shows credited hours in Recent Entries.
 
+HOW TO DEPLOY
 1. Extract this ZIP.
-2. Open github.com/seanlian0029/1 and upload the contents to repository root, replacing matching files.
-3. Commit changes.
-4. Open https://seanlian0029.github.io/1/ and press Ctrl+Shift+R.
-5. Connect with the trusted Google account which has edit access to the test spreadsheet.
-6. Try Dashboard, Attendance Entry, Reports, Manage Users, Department Management, System Settings and Time Simulator.
-7. Test Simulator with 08:00 / 17:00 and with Late and Library Extended buttons. Simulator does NOT save.
-8. Test Manage Users with fictional students only. It writes to Google Sheets. Reconnect afterward to refresh attendance lookup.
+2. Open https://github.com/seanlian0029/1
+3. Upload the 10 files from this ZIP to the repository root (not the ZIP itself).
+4. Commit changes and visit https://seanlian0029.github.io/1/
+5. Hard-refresh with Ctrl+Shift+R.
+6. Connect using a Google account that has spreadsheet access.
+7. Check Attendance Entry -> Recent Entries. Select All / Time In / Time Out.
+8. Check Reports for complete date and student-filtered totals.
 
-IMPORTANT
-- This is a trusted-staff single-station test build, NOT a secure production system.
-- Direct Sheets API requires editor access. Do not distribute this website as a public student portal.
-- Never publish real student data or service account secrets to GitHub.
-- Simultaneous scan atomicity, server-side role permissions, and full source-policy edge-case review still required before production.
-- Schedule rules currently match Phase 4; simulation is a read-only calculation.
-- The original PHP Bootstrap 4 navbar/card layout and MLALAF logo are preserved; some layout details are adapted for static hosting.
+IMPORTANT — NOT YET APPROVED FOR LIVE STUDENTS
+- Existing app talks directly to Google Sheets using OAuth scope spreadsheets.
+  A staff account with spreadsheet editor access can edit the database directly;
+  page-level navigation is NOT a security boundary.
+- Concurrent scans from two devices can create duplicates (read-then-write race).
+- This is not appropriate for public students or multiple check-in kiosks yet.
+- The currently active academic period may still be TEST-2026-2027.
+  Do not convert that test period into official attendance.
+- Original PHP attendance formulas have edge cases and require policy review.
+- Recent entry hours are calculated from existing records; no Sheets column added.
+- Do not upload old PHP/SQL backups to a public repository.
+
+To make this a true live production site: move attendance writes to a backend with
+atomic duplicate prevention and role-scoped permissions; approve calculation rules;
+configure real academic period; test a backup/restore plan.
